@@ -61,7 +61,7 @@ namespace THH.Web.Areas.Basics.Controllers
         }
 
         [HttpPost]
-        public JsonResult Edit(CompanyDto companydto)
+        public ActionResult Edit(CompanyDto companydto)
         {
             ResultJsonInfo resultJsonInfo = new ResultJsonInfo() { Data = "", ErrorMsg = "", Success = true };
             if (companydto != null)

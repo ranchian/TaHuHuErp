@@ -13,8 +13,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            //Initializer initializer = new Initializer();
-          //  initializer.Seed();
+            Initializer initializer = new Initializer();
+           initializer.Seed();
 
             UserService userService = new UserService();
             SysFunctionService sysFunctionService = new SysFunctionService();

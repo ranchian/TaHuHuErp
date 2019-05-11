@@ -504,6 +504,10 @@
     <Content Include="Areas\Basics\Views\Company\Edit.cshtml" />
     <Content Include="Areas\Basics\Views\Store\Add.cshtml" />
     <Content Include="Areas\Basics\Views\Store\Edit.cshtml" />
+    <Content Include="Areas\Basics\Views\Machine\Add.cshtml" />
+    <Content Include="Areas\Basics\Views\Machine\Edit.cshtml" />
+    <Content Include="Areas\Basics\Views\Merchant\Add.cshtml" />
+    <Content Include="Areas\Basics\Views\Merchant\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\i18n\en\common.properties" />
     <Content Include="Scripts\i18n\zh-CN\common_zh_CN.properties" />

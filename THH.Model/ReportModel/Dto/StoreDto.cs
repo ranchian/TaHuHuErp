@@ -32,6 +32,5 @@ namespace THH.Model.ReportModel.Dto
         [Required]
         public int CompanyId { get; set; }
 
-        public virtual Company Company { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace THH.Web.Areas.Basics.Controllers
             return View();
         }
 
-        public JsonResult GetCompanyGrid(int limit, int offset, string sort, string sortOrder)
+        public JsonResult GetStoreGrid(int limit, int offset, string sort, string sortOrder)
         {
             TablePageParameter gp = new TablePageParameter() { Limit = limit, Offset = offset, SortName = sort, SortOrder = sortOrder };
             List<StoreDto> StoreDtos = Service.GetStoreGrid(gp);
