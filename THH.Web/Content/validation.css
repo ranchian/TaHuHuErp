@@ -1,0 +1,9 @@
+﻿/*********验证样式**********/
+.validation {
+    font-family: 微软雅黑,宋体;
+    font-size: 1em;
+    color: red;
+}
+.error {
+    color: red;
+}

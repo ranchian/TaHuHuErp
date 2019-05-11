@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+@model  THH.Model.Dto.UserDto
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").validate();
+    });
+</script>
+@using (Html.BeginForm())
+{<div style=" margin:15px; border:1px">
+        <div class="form-group">
+            <label for="name">用户名</label>
+            @*<input type="text" class="form-control" name="UserName" value="@Model.UserName" id="UserName" placeholder="请输入用户名" required>*@
+            @Html.TextBox("UserName", Model.UserName, new { @class = "form-control", placeholder = "请输入用户名", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">登录账号</label>
+            @Html.TextBoxFor(m => m.LogingName, Model.LogingName, new { @class = "form-control", placeholder = "请输入登录账号", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">Email</label>
+            @Html.TextBoxFor(m => m.Email, Model.Email, new { @class = "form-control", placeholder = "请输入邮箱", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">密码</label>
+            @Html.TextBoxFor(m => m.Password, Model.Password, new { @class = "form-control", placeholder = "请输入密码", required = "required" })
+        </div>
+        <div style="margin-left:70%">
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+}

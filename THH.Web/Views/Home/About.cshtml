@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = null;
+}
+<script src="~/Scripts/jquery.min-2.2.3.js"></script>
+<script src="~/Scripts/i18n/jquery.i18n.properties.js"></script>
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@Html.BodyButton_Add("1213", 20, 30, "12", "", "新增")
+@Html.BodyButtonA("12", "", "123")
+<select id="language">
+    <option value="zh-CN">中文简体</option>
+    <option value="en">English</option>
+</select>
+<div>
+    <input class="typeahead" type="text" id="menu_search" data-i18n-placeholder="searchPlaceholder" />
+    <label data-i18n-text="signOut">signOut </label>
+    <label data-i18n-text="station">station </label>
+    <label data-i18n-text="partno">partno </label>
+    <label data-i18n-text="query">query </label>
+    <label data-i18n-text="add">add </label>
+    <label data-i18n-text="edit">edit </label>
+    <label data-i18n-text="delete">delete </label>
+</div>
+<script>
+    var i18nLanguage = 'zh-CN';
+    jQuery.i18n.properties({
+        name: 'common',
+        path: '/Scripts/i18n/' + i18nLanguage + '/', //资源文件路径
+        mode: 'map', //用Map的方式使用资源文件中的值
+        language: i18nLanguage,
+        callback: function () {//加载成功后设置显示内容
+            console.log("i18n赋值中...");
+            try {
+                debugger;
+                //初始化页面元素
+                $('[data-i18n-placeholder]').each(function () {
+                    $(this).attr('placeholder', $.i18n.prop($(this).data('i18n-placeholder')));
+                });
+                $('[data-i18n-text]').each(function () {
+                    //如果text里面还有html需要过滤掉
+                    var html = $(this).html();
+                    var reg = /<(.*)>/;
+                    if (reg.test(html)) {
+                        var htmlValue = reg.exec(html)[0];
+                        $(this).html(htmlValue + $.i18n.prop($(this).data('i18n-text')));
+                    }
+                    else {
+                        $(this).text($.i18n.prop($(this).data('i18n-text')));
+                    }
+                });
+                $('[data-i18n-value]').each(function () {
+                    $(this).val($.i18n.prop($(this).data('i18n-value')));
+                });
+            }
+            catch (ex) { }
+            console.log("i18n写入完毕");
+        }
+    });
+</script>

@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+<!-- 样式 -->
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.1.0/themes/global/css/bootstrap.css">
+@*<link href="~/Content/Themes/bootstrap.css" rel="stylesheet" />*@
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.1.0/themes/base/css/index.css" id="admui-siteStyle">
+@*<link href="~/Content/Themes/index.css" rel="stylesheet" />*@
+<!-- 图标 CSS-->
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.1.0/fonts/font-awesome/font-awesome.css">
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.1.0/fonts/web-icons/web-icons.css">
+<!-- 核心  -->
+<script src="http://cdn.admui.com/demo/iframe/2.1.0/themes/global/js/core.js"></script>
+@*<script src="~/Scripts/core.js"></script>*@
+<script src="http://cdn.admui.com/demo/iframe/2.1.0/themes/global/js/configs/site-configs.js"></script>
+@*<script src="~/Scripts/site-configs.js"></script>*@
+<script src="http://cdn.admui.com/demo/iframe/2.1.0/themes/global/js/components.js"></script>
+<script src="http://cdn.admui.com/demo/iframe/2.1.0/vendor/jquery/jquery.min.js"></script>
+<link href="~/Content/bootstrap-table-1.14.2/bootstrap-table.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-table.min.js"></script>
+<script src="~/Scripts/bootstrap-table-zh-CN.min.js"></script>
+<div style="margin-top:38px">
+    <table id="tb_badOrder" data-classes="table table-hover" data-show-columns="true" data-card-view="true"></table>
+</div>
+<script>
+    $(function () {
+        //1.初始化不良品订单Table
+        var badOrderTable = new badOrderTableInit();
+        badOrderTable.Init();
+        //2.初始化Button的点击事件
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init();
+    });
+    var ButtonInit = function () {
+        var oInit = new Object();
+        var postdata = {};
+        oInit.Init = function () {
+            //初始化页面上面的按钮事件
+        };
+        return oInit;
+    };
+    var badOrderTableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#tb_badOrder').bootstrapTable({
+                url: '/Home/Tables',
+                ajaxOptions: { async: true, timeout: 20000 },
+                method: 'get',
+                striped: false,
+                cache: false,
+                pagination: true,
+                sortable: false,
+                sortOrder: "asc",
+                queryParams: oTableInit.queryParams,
+                sidePagination: "server",
+                pageNumber: 1,
+                pageSize: 10,
+                pageList: [10, 25, 50, 100],
+                strictSearch: true,
+                showColumns: true,
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                height: "auto",
+                uniqueId: "Id",
+                cardView: false,
+                detailView: false,
+                columns: [
+                    {
+                        checkbox: true
+                    },
+                    {
+                        field: 'Img',
+                        title: '商品图片',
+                        formatter: function (value, row, index) {
+                            var s = '<a class = "view"  href="javascript:void(0)"><img style="width:80px;height:50px;"  src="' + value + '" /></a>';
+                            return s;
+                        }
+                    },
+                    {
+                        field: 'SKU',
+                        title: 'SKU编号'
+                    },
+                    {
+                        field: 'PurchaseOrderNo',
+                        title: '采购单号'
+                    },
+                    {
+                        field: 'ProductName',
+                        title: '商品名称'
+                    },
+                    {
+                        field: 'InvoiceNo',
+                        title: '发货单号'
+                    },
+                    {
+                        field: 'BadType',
+                        title: '不良类型'
+                    },
+                    {
+                        field: 'BadDescription',
+                        title: '不良描述'
+                    },
+                    {
+                        field: 'BadQuantity',
+                        title: '不良数量'
+                    },
+                    {
+                        field: 'Status',
+                        title: '状态'
+                    },
+                    {
+                        field: 'Remark',
+                        title: '备注'
+                    }
+                ]
+            });
+        };
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset,  //页码
+            };
+            return temp;
+        };
+        return oTableInit;
+    };
+</script>

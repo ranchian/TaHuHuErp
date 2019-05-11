@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>THHERP</title>
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--外部css-->
+    <link href="~/Content/core.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/web-icons-master/css/web-icons.css" rel="stylesheet" />
+    <link href="~/Content/metisMenu.css" rel="stylesheet" />
+    <!--my css-->
+    @*@Styles.Render("~/Content/css")*@
+    @RenderSection("css", required: false)
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+        }
+
+        #hzy-container {
+            height: 100%;
+        }
+    </style>
+    <script src="~/Scripts/Router.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/metisMenu.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            hzyRouter.init();
+            hzy.init();
+            $('#hzy-tools > .dropdown-toggle').dropdown();
+            $('#hzy-container').on('click', function () {
+                $('#hzy-tools > .dropdown-toggle').dropdown('toggle');
+            });
+
+        });
+    </script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryva")*@
+</head>
+
+<body class="@ViewBag.BodyClass">
+    @RenderBody()
+    @RenderSection("js", required: false)
+    @StackExchange.Profiling.MiniProfiler.RenderIncludes()
+</body>
+</html>

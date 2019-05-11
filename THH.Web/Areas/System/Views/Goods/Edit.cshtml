@@ -1,0 +1,59 @@
+﻿@model THH.Model.Dto.GoodsDto
+@{
+    ViewBag.Title = "Edit";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").validate();
+    });
+</script>
+@using (Html.BeginForm())
+{<div style=" margin:15px; border:1px">
+    <div class="form-group">
+        <label for="name">商品名称</label>
+        @*<input type="text" class="form-control" id="UserName" placeholder="请输入商品名称" required>*@
+        @Html.TextBoxFor(m => m.GoodsName, new { @class = "form-control", placeholder = "请输入商品名称", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">原价</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="请输入商品原价" required>*@
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", placeholder = "请输入商品原价", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">会员价</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="请输入会员价" required>*@
+        @Html.TextBoxFor(m => m.VipPrice, new { @class = "form-control", placeholder = "请输入会员价", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">是否上架</label>
+        <select name="ifShelves" id="ifShelves" class="form-control" label="State:" labelPosition="top" style="width:100%;">
+            <option value="1">是</option>
+            <option value="0">否</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">是否促銷</label>
+        @*@Html.ListBoxFor(m=>m.IfPromotion , new { @class = "form-control" })*@
+        <select name="IfPromotion" id="ifPromotion" class="form-control" label="State:" labelPosition="top" style="width:100%;">
+            <option value="1">是</option>
+            <option value="0">否</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">簡介</label>
+        @*<input type="text" class="form-control" id="Introduction" placeholder="请输入簡介" required>*@
+        @Html.TextBoxFor(m => m.Introduction, new { @class = "form-control", placeholder = "请输入簡介", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">創建人</label>
+        @Html.TextBoxFor(m => m.CredateTime, new { @class = "form-control", placeholder = "请输入簡介", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">創建時間</label>
+        @Html.TextBoxFor(m => m.CreateUser, new { @class = "form-control", placeholder = "请输入簡介", required = "required" })
+    </div>
+    <div>
+        <button type="submit" style="width: 100%;" class="btn btn-primary">提交</button>
+    </div>
+</div>
+}

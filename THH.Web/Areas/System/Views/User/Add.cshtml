@@ -1,0 +1,58 @@
+﻿
+@model  THH.Model.Dto.UserDto
+@{
+    ViewBag.Title = "Add";
+}
+@using (Html.BeginForm("Add", "User", FormMethod.Post))
+{
+    <div style=" margin:15px; border:1px">
+        <div class="form-group">
+            <label for="name">用户名</label>
+            @*<input type="text" class="form-control" id="UserName" placeholder="请输入用户名" required>*@
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "请输入用户名", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">登录账号</label>
+            @*<input type="text" class="form-control" id="LoginName" placeholder="请输入登录账号" required>*@
+            @Html.TextBoxFor(m => m.LogingName, new { @class = "form-control", placeholder = "请输入登录账号", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">Email</label>
+            @*<input type="text" class="form-control" id="Email" placeholder="请输入邮箱" required>*@
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "请输入邮箱", required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="name">密码</label>
+            @*<input type="text" class="form-control" id="Password" placeholder="请输入密码" required>*@
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "请输入密码", required = "required" })
+        </div>
+        <div style="margin-left:70%">
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+}
+<script>
+    $().ready(function () {
+        // 在键盘按下并释放及提交后验证提交表单
+        $("form").validate({
+            //messages: {
+            //    UserName: {
+            //        required: "请输入用户名",
+            //        //   minlength: "用户名必需由两个字母组成"
+            //    },
+            //    Password: {
+            //        required: "请输入密码",
+            //        minlength: "密码长度不能小于 5 个字母"
+            //    },
+            //    LoginName: {
+            //        required: "请输入登录账号",
+            //        minlength: "密码长度不能小于 5 个字母",
+            //    },
+            //    Email: {
+            //        required: "请输入密码",
+            //        minlength: "密码长度不能小于 5 个字母",
+            //    }
+            //}
+        });
+    });
+</script>

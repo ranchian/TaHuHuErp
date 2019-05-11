@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page animation-fade">
+    <div class="page-content">
+        <!--高级检索部分-->
+        <div class="panel" id="panelSearch">
+            <div class="panel-heading">
+                <h3 class="panel-title">高级检索</h3>
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-primary" onclick="adminList.search()">检索</button>&nbsp;&nbsp;
+                <button class="btn btn-success" onclick="adminList.resetSearch()">重置</button>&nbsp;&nbsp;
+                <button class="btn btn-danger" onclick="adminList.panelSearch()">关闭</button>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="col-sm-12 pl-25 pr-25 pt-15 pb-10">
+                    <button type="button" class="btn btn-primary" onclick="window.location=window.location">
+                        <i class="fa fa-rotate-right"></i>&nbsp;刷新
+                    </button>
+                    <button type="button" class="btn btn-primary" data-power="Search" name="search">
+                        <i class="fa fa-search"></i>&nbsp;检索
+                    </button>
+                    @*<button type="button" class="btn btn-primary" data-power="Add" name="add">
+                            <i class="fa fa-plus"></i>&nbsp;添加
+                        </button>*@
+
+                    @Html.BodyButtonB("添加", "button", "", "", "btn btn-primary", "add", "data-power='add'", "")
+                    <button type="button" class="btn btn-primary" data-power="Edit" name="edit">
+                        <i class="fa fa-pencil"></i>&nbsp;修改
+                    </button>
+                    @*<button type="button" class="btn btn-primary" data-power="Delete" name="delete">
+                            <i class="fa fa-trash"></i>&nbsp;删除
+                        </button>*@
+                    @Html.BodyButtonB("删除", "button", "", "", "btn btn-primary", "delete", "data-power='Delete'", "")
+                    <a class="btn btn-primary" target="_blank" href="" data-power="GetExcel" name="getExcel">
+                        <i class="fa fa-file-excel-o"></i>&nbsp;导出 Excel
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body container-fluid pb-0">
+                <!--表格-->
+                <table class="table table-hover" id="buttonTable"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        //创建
+        $("#add").on('click', function () {
+            CreateButton();
+        });
+        //2.初始化Button的点击事件
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init();
+        //用户
+        //1.初始化用户Table
+        var buttonTablets = new ButtonTableInit();
+        buttonTablets.Init();
+    });
+    var ButtonInit = function () {
+        var oInit = new Object();
+        var postdata = {};
+        oInit.Init = function () {
+            //初始化页面上面的按钮事件
+        };
+        return oInit;
+    };
+    var ButtonTableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#buttonTable').bootstrapTable({
+                url: '/Button/GetButtonGrid',
+                ajaxOptions: { async: true, timeout: 10000 },
+                method: 'get',
+                striped: false,
+                toolbar: false,
+                cache: false,
+                pagination: true,
+                sortable: false,
+                sortOrder: "asc",
+                queryParams: oTableInit.queryParams,
+                sidePagination: "server",
+                pageNumber: 1,
+                pageSize: 10,
+                pageList: [10, 25, 50, 100],
+                strictSearch: false,
+                showColumns: false,
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                height: "auto",
+                uniqueId: "Id",
+                cardView: false,
+                detailView: false,
+                columns: [
+                    {
+                        checkbox: true
+                    },
+                    {
+                        field: 'ButtonCode',
+                        title: '按钮Code'
+                    },
+                    {
+                        field: 'ButtonName',
+                        title: '按钮名称'
+                    },
+                    {
+                        field: 'Status',
+                        title: '按钮状态'
+                    },
+                    {
+                        field: 'ButtonIocn',
+                        title: '图标'
+                    },
+                    {
+                        field: 'InputType',
+                        title: '按钮类型'
+                    },
+                    {
+                        field: 'Style',
+                        title: '按钮样式'
+                    },
+                    {
+                        field: 'CreateUser',
+                        title: '创建人'
+                    },
+                    {
+                        field: 'CredateTime',
+                        title: '创建时间',
+                        formatter: function (value, row, index) {
+                            return Common.DateFormat(value)
+                        }
+                    },
+                    {
+                        field: 'UpdateUser',
+                        title: '最后人'
+                    },
+                    {
+                        field: 'UpdateTime',
+                        title: '最后更新时间',
+                        formatter: function (value, row, index) {
+                            return Common.DateFormat(value)
+                        }
+                    }
+                ]
+            });
+        };
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset,  //页码
+            };
+            return temp;
+        };
+        return oTableInit;
+    };
+</script>
+<script>
+    var CreateButton = function () {
+        layer.open({
+            type: 2,
+            title: '添加按钮',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['35%', '75%'],
+            content: 'Add'
+        })
+    }
+</script>

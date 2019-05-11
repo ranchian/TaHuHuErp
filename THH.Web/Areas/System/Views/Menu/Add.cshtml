@@ -1,0 +1,48 @@
+﻿@model  THH.Model.Dto.MenuDto
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("Add", "Menu", FormMethod.Post))
+{
+    <div style=" margin:15px; border:1px">
+        <div class="form-group">
+            <label for="name">菜单编码</label>
+            @Html.TextBoxFor(m => m.MenuCode, new { @class = "form-control", placeholder = "请输入菜单编码" })
+            @Html.ValidationMessageFor(model => model.MenuCode, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">菜单Url</label>
+            @Html.TextBoxFor(m => m.Url, new { @class = "form-control", placeholder = "请输入菜单Url" })
+            @Html.ValidationMessageFor(model => model.Url, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">菜单名称</label>
+            @Html.TextBoxFor(m => m.MenuName, new { @class = "form-control", placeholder = "请输入菜单名称" })
+            @Html.ValidationMessageFor(model => model.MenuName, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">菜单级别</label>
+            @Html.TextBoxFor(m => m.MenuLevel, new { @class = "form-control", placeholder = "请输入菜单级别" })
+            @Html.ValidationMessageFor(model => model.MenuLevel, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">父节点</label>
+            @Html.TextBoxFor(m => m.ParentId, new { @class = "form-control", placeholder = "请输入父节点" })
+            @Html.ValidationMessageFor(model => model.ParentId, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">排序</label>
+            @Html.TextBoxFor(m => m.SortNumber, new { @class = "form-control", placeholder = "请输入排序" })
+            @Html.ValidationMessageFor(model => model.SortNumber, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">图标</label>
+            @Html.TextBoxFor(m => m.Icon, new { @class = "form-control", placeholder = "请输入图标" })
+            @Html.ValidationMessageFor(model => model.Icon, null, new { @class = "validation" })
+        </div>
+        <div style="margin-left:70%">
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+}

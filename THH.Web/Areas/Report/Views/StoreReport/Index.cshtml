@@ -1,0 +1,320 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/common.js"></script>
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <!--高级检索部分-->
+        <div class="panel" id="panelSearch">
+            <div class="panel-heading">
+                <h3 class="panel-title">高级检索</h3>
+            </div>
+            <div class="panel-body">
+                @*<form action="javascript:void(0)" class="form-row">
+                        <div class="col-sm-3">
+                            <h4 class="example-title">用户名</h4>
+                            <input type="text" class="form-control" name="User_Name" placeholder="请输入用户名">
+                        </div>
+                        <div class="col-sm-3">
+                            <h4 class="example-title">登录名</h4>
+                            <input type="text" class="form-control" name="User_LoginName" placeholder="请输入登录名">
+                        </div>
+                    </form>*@
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-primary" onclick="adminList.search()">检索</button>&nbsp;&nbsp;
+                <button class="btn btn-success" onclick="adminList.resetSearch()">重置</button>&nbsp;&nbsp;
+                <button class="btn btn-danger" onclick="adminList.panelSearch()">关闭</button>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="col-sm-12 pl-25 pr-25 pt-15 pb-10">
+                    <button type="button" class="btn btn-primary" onclick="window.location=window.location">
+                        <i class="fa fa-rotate-right"></i>&nbsp;刷新
+                    </button>
+                    <button type="button" class="btn btn-primary" data-power="Search" name="search">
+                        <i class="fa fa-search"></i>&nbsp;检索
+                    </button>
+                    <button type="button" class="btn btn-primary" data-power="Add" name="add" id="add">
+                        <i class="fa fa-plus"></i>&nbsp;添加
+                    </button>
+                    <button type="button" class="btn btn-primary" data-power="Edit" name="edit" id="edit">
+                        <i class="fa fa-pencil"></i>&nbsp;修改
+                    </button>
+                    <button type="button" class="btn btn-primary" data-power="Delete" name="delete" id="delete">
+                        <i class="fa fa-trash"></i>&nbsp;删除
+                    </button>
+                    <a class="btn btn-primary" target="_blank" href="" data-power="GetExcel" name="getExcel" id="exportExcel">
+                        <i class="fa fa-file-excel-o"></i>&nbsp;导出 Excel
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body container-fluid pb-0">
+                <!--表格-->
+                <table class="bootstrap-table" data-show-columns="false" id="StoreTable"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        //添加
+        $("#add").on('click', function () {
+            CreateStore();
+        });
+        //修改
+        $("#edit").on('click', function () {
+            var id = $.map($('#StoreTable').bootstrapTable('getSelections'), function (row) {
+                return row.Id;
+            });
+            if (id.length != 1) {
+                layer.msg('请选中一行', {
+                    time: 4000,
+                });
+            } else {
+                EditStore(id);
+            }
+        });
+        //删除
+        $("#delete").on('click', function () {
+            var ids = $.map($('#StoreTable').bootstrapTable('getSelections'), function (row) {
+                return row.Id;
+            });
+            if (ids.length < 1) {
+                layer.msg('请至少选中一行', {
+                    time: 4000, //20s后自动关闭
+                });
+            } else {
+                Delete(ids.join(","));
+            }
+        });
+        //导出
+        $("#exportExcel").on('click', function () {
+            var ids = $.map($('#StoreTable').bootstrapTable('getSelections'), function (row) {
+                return row.Id;
+            });
+            Export(ids)
+        });
+        //2.初始化Button的点击事件
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init();
+        //用户
+        //1.初始化商户Table
+        var StoreTablets = new StoreTableInit();
+        StoreTablets.Init();
+    });
+    var ButtonInit = function () {
+        var oInit = new Object();
+        var postdata = {};
+        oInit.Init = function () {
+            //初始化页面上面的按钮事件
+        };
+        return oInit;
+    };
+    var StoreTableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#StoreTable').bootstrapTable({
+                url: '/StoreReport/GetStoreGrid',
+                ajaxOptions: { async: true, timeout: 10000 },
+                method: 'get',
+                //toolbar: '#toolbar',              //工具按钮用哪个容器
+                striped: false,
+                toolbar: false,                     //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                silentSort: true,
+                sortStable: true,
+                sortable: true,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//这里的键的名字和控制器的变量名必须一致，这边改动，控制器也需要改成一样的
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+                pageSize: 10,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: false,                      //是否显示表格搜索
+                strictSearch: true,
+                showColumns: false,                  //是否显示所有的列（选择显示的列）
+                showRefresh: false,                  //是否显示刷新按钮
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: true,                //是否启用点击选中行
+                height: "auto",                     //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "Id",                     //每一行的唯一标识，一般为主键列
+                showToggle: false,                  //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                columns: [
+                    {
+                        checkbox: true,
+                        visible: true              //是否显示复选框
+                    },
+                    {
+                        field: 'Id',
+                        title: '序号',
+                        sortable: true
+                    },
+                    {
+                        field: 'TransactionDate',
+                        title: '交易日期',
+                        formatter: function (value, row, index) {
+                            return Common.DateFormat(value)
+                        }
+                    },
+                    {
+                        field: 'StoreName',
+                        title: '商户名称',
+                        sortable: true
+                    },
+                    {
+                        field: 'StoreNo',
+                        title: '商户编号'
+                    },
+                    {
+                        field: 'PaymentType',
+                        title: '支付类型'
+                    },
+                    {
+                        field: 'Quantity',
+                        title: '交易成功笔数'
+                    },
+                    {
+                        field: 'Amount',
+                        title: '交易成功金额'
+                    },
+                    {
+                        field: 'RefundQuantity',
+                        title: '退款笔数'
+                    },
+                    {
+                        field: 'RefundAmount',
+                        title: '退款成功金额'
+                    },
+                    {
+                        field: 'NetAmount',
+                        title: '交易净额'
+                    },
+                    {
+                        field: 'StoreRate',
+                        title: '商户费率'
+                    },
+                    {
+                        field: 'StoreFee',
+                        title: '商户手续费'
+                    },
+                    {
+                        field: 'SettlementAmount',
+                        title: '结算金额'
+                    },
+                    {
+                        field: 'Currency',
+                        title: '币种',
+                    }
+                ]
+            });
+        };
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset,  //页码 
+                sort: params.sort,      //排序列名
+                sortOrder: params.order //排位命令（desc，asc）
+            };
+            return temp;
+        };
+        return oTableInit;
+    };
+</script>
+
+<script>
+    var CreateStore = function () {
+        layer.open({
+            type: 2,
+            title: '添加商户',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['50%', '60%'],
+            content: 'Add'
+        })
+    }
+    var EditStore = function (id) {
+        layer.open({
+            type: 2,
+            title: '编辑商户',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['50%', '60%'],
+            content: 'Edit?id=' + id
+        })
+    }
+
+    //删除
+    var Delete = function (ids) {
+        layer.confirm('您确定要删除吗？', {
+            title: '提示',
+            move: false,
+            anim: 1, //默认动画风格
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            $.ajax({
+                type: 'Post',
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ ids: ids }),
+                async: true,
+                url: 'Delete',
+                success: function (result) {
+                    if (result.Success) {
+                        layer.closeAll('dialog');
+                        layer.msg('删除成功！', {
+                            time: 2000,
+                        });
+                        $("#StoreTable").bootstrapTable('refresh', { url: '/StoreReport/GetStoreGrid' });
+                    } else {
+                        layer.open({
+                            title: '提示',
+                            content: '删除失败！',
+                            move: false,
+                            btn: "知道了"
+                        });
+                    }
+                },
+                error: function (result) {
+                    console.log(result)
+                }
+            })
+        });
+    };
+
+     //导出
+    var Export = function (ids) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("ExportExcel", "Store", new { area = "" })',
+            dataType: "json",
+            data: {
+                ids: ids
+            },
+            success: function (result) {
+                if (result.Success) {
+                    window.location.target = "_blank";
+                    window.location.href = result.Data;
+                } else {
+                    layer.open({
+                        title: '提示',
+                        content: result.ErrorMsg,
+                        move: false,
+                        btn: "知道了"
+                    });
+                }
+            }
+        })
+    }
+</script>

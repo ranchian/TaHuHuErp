@@ -1,0 +1,42 @@
+﻿@model  THH.Model.Dto.ButtonDto
+@{
+    ViewBag.Title = "Add";
+}
+@using (Html.BeginForm("Add", "Button", FormMethod.Post))
+{
+    <div style=" margin:15px; border:1px">
+        <div class="form-group">
+            <label for="name">按钮名称</label>
+            @Html.TextBoxFor(m => m.ButtonName, new { @class = "form-control", placeholder = "请输入按钮名称" })
+            @Html.ValidationMessageFor(model => model.ButtonName, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">按钮Code</label>
+            @Html.TextBoxFor(m => m.ButtonCode, new { @class = "form-control", placeholder = "请输入按钮Code" })
+            @Html.ValidationMessageFor(model => model.ButtonCode, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">按钮图标</label>
+            @Html.TextBoxFor(m => m.ButtonIocn, new { @class = "form-control", placeholder = "请输入按钮图标" })
+            @Html.ValidationMessageFor(model => model.ButtonIocn, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">按钮状态</label>
+            @Html.TextBoxFor(m => m.Status, new { @class = "form-control", placeholder = "请输入按钮图标" })
+            @Html.ValidationMessageFor(model => model.Status, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">按钮类型</label>
+            @Html.TextBoxFor(m => m.InputType, new { @class = "form-control", placeholder = "请输入按钮类型" })
+            @Html.ValidationMessageFor(model => model.InputType, null, new { @class = "validation" })
+        </div>
+        <div class="form-group">
+            <label for="name">按钮样式</label>
+            @Html.TextBoxFor(m => m.ButtonStyle, new { @class = "form-control", placeholder = "请输入样式" })
+            @Html.ValidationMessageFor(model => model.ButtonStyle, null, new { @class = "validation" })
+        </div>
+        <div style="margin-left:70%">
+            <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+}

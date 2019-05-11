@@ -1,0 +1,105 @@
+﻿@model THH.Model.ReportModel.Dto.StoreReportDto
+
+@{
+    ViewBag.Title = "Add";
+}
+
+
+@using (Html.BeginForm("Add", "StoreReport", FormMethod.Post))
+{
+<div style=" margin:15px; border:1px">
+    <div class="form-group">
+        <label for="name">交易日期</label>
+        @*<input type="text" class="form-control" id="UserName" placeholder="交易日期" required>*@
+        @Html.TextBoxFor(m => m.TransactionDate, new { @class = "form-control", @type = "Date", placeholder = "交易日期", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">商户名称</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="商户名称" required>*@
+        @Html.TextBoxFor(m => m.StoreName, new { @class = "form-control", placeholder = "商户名称", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">商户编号</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="商户编号" required>*@
+        @Html.TextBoxFor(m => m.StoreNo, new { @class = "form-control", placeholder = "商户编号", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">支付类型</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="支付类型" required>*@
+        @Html.TextBoxFor(m => m.PaymentType, new { @class = "form-control", placeholder = "支付类型", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">交易成功笔数</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="交易成功笔数" required>*@
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", placeholder = "交易成功笔数", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">交易成功金额</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="交易成功金额" required>*@
+        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", placeholder = "交易成功金额", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">退款笔数</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="退款笔数" required>*@
+        @Html.TextBoxFor(m => m.RefundQuantity, new { @class = "form-control", placeholder = "退款笔数", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">退款成功金额</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="退款成功金额" required>*@
+        @Html.TextBoxFor(m => m.RefundAmount, new { @class = "form-control", placeholder = "退款成功金额", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">交易净额</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="交易净额" required>*@
+        @Html.TextBoxFor(m => m.NetAmount, new { @class = "form-control", placeholder = "交易净额", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">商户费率</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="商户费率" required>*@
+        @Html.TextBoxFor(m => m.StoreRate, new { @class = "form-control", placeholder = "商户费率", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">商户手续费</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="商户手续费" required>*@
+        @Html.TextBoxFor(m => m.StoreFee, new { @class = "form-control", placeholder = "商户手续费", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">结算金额</label>
+        @*<input type="text" class="form-control" id="LoginName" placeholder="结算金额" required>*@
+        @Html.TextBoxFor(m => m.SettlementAmount, new { @class = "form-control", placeholder = "结算金额", required = "required" })
+    </div>
+    <div class="form-group">
+        <label for="name">币种</label>
+        @*<input type="text" class="form-control" id="Email" placeholder="币种" required>*@
+        @Html.TextBoxFor(m => m.Currency, new { @class = "form-control", placeholder = "币种", required = "required" })
+    </div>
+    <div>
+        <button type="submit" style="width: 100%;" class="btn btn-primary">提交</button>
+    </div>
+</div>
+}
+<script>
+            $().ready(function () {
+                // 在键盘按下并释放及提交后验证提交表单
+                $("form").validate({
+                    //messages: {
+                    //    UserName: {
+                    //        required: "请输入用户名",
+                    //        //   minlength: "用户名必需由两个字母组成"
+                    //    },
+                    //    Password: {
+                    //        required: "请输入密码",
+                    //        minlength: "密码长度不能小于 5 个字母"
+                    //    },
+                    //    LoginName: {
+                    //        required: "请输入登录账号",
+                    //        minlength: "密码长度不能小于 5 个字母",
+                    //    },
+                    //    Email: {
+                    //        required: "请输入密码",
+                    //        minlength: "密码长度不能小于 5 个字母",
+                    //    }
+                    //}
+                });
+            });
+</script>

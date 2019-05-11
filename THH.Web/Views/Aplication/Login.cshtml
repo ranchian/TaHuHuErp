@@ -1,0 +1,71 @@
+﻿@using THH.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<html lang="zh-CN" style="overflow: hidden;">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>THH</title>
+    <!--外部css-->
+    <link href="~/Content/core.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/web-icons-master/css/web-icons.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/validation.css" rel="stylesheet" />
+    <style type="text/css">
+        #hzy-login {
+            background: url('../../img/login1.jpg');
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Aplication", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        <div id="hzy-login" class="animated fadeIn">
+            <div class="login-modal">
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="login-panel">
+                        <h1 class="text-center">THH后台管理系统</h1>
+                        <div class="container-fluid">
+                            <div class="pt-50">
+                                <div class="form-group form-material">
+                                    <label class="col-form-label" for="uName">帐户名</label>
+                                    @Html.TextBoxFor(m => m.LoginName, new { placeholder = "请输入账号", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.LoginName, null, new { @class = "validation" })
+                                </div>
+                                <div class="form-group form-material">
+                                    <label class="col-form-label" for="uName">密码</label>
+                                    @Html.PasswordFor(m => m.Password, new { placeholder = "请输入密码", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "validation" })
+                                    <span style=" font-family: 微软雅黑,宋体;font-size: 1em;color: red;"> @ViewBag.errorMsg</span>
+                                </div>
+                                <input type="submit" class="btn btn-block btn-primary btn-lg mt-60" name="登录" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

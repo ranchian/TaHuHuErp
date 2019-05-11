@@ -1,0 +1,258 @@
+﻿
+@{
+    ViewBag.Title = "THH 管理系统";
+    var MainPage = "/System/Home/Main/";
+}
+<div id="hzy-container" class="animated fadeIn">
+    <header class="index-skin-primary">
+        <div class="hzy-header-pc hidden-sm-down">
+            <div class="hzy-header-left hzy-left">
+                <ul>
+                    <li class="hzy-header-btn hzy-headerhover" onclick="hzy.menu.toggle(this);" title="左侧菜单/收缩" data-toggle="tooltip" data-placement="bottom"><a href="javascript:void(0)"><i class="fa fa-bars"></i></a></li>
+                    <li class="hzy-header-btn hzy-headerhover hzy-logo" title="Logo" data-toggle="tooltip" data-placement="bottom"><a href="javascript:void(0)" class="pl-15 pr-15">@ViewBag.Title</a></li>
+                </ul>
+            </div>
+            <div class="hzy-header-right hzy-right">
+                <ul>
+                    <li class="hzy-header-btn hzy-headerhover" onclick="hzy.tabs.refreshThisTab()" title="刷新" data-toggle="tooltip" data-placement="bottom"><a href="javascript:void(0)"><i class="fa fa-rotate-right"></i></a></li>
+                    <li class="hzy-header-btn hzy-headerhover" title="换肤" data-toggle="tooltip" data-placement="bottom" onclick="$('#examplePositionSidebar').modal()"><a href="javascript:void(0)"><i class="fa fa-th"></i></a></li>
+                    <!--缩小 图标 wb-contract-->
+                    <li class="hzy-header-btn hzy-headerhover" onclick="hzy.fullScreen.handleFullScreen(this);" title="全屏" data-toggle="tooltip" data-placement="bottom"><a href="javascript:void(0)"><i class="wb-expand"></i></a></li>
+                    <li class="hzy-header-btn hzy-headerhover"><a href="/Admin/Login/Out" title="退出系统" data-toggle="tooltip" data-placement="bottom"><span>登录人：&nbsp;ljy&nbsp;&nbsp;</span><i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hzy-header-mobile">
+            <ul>
+                <li class="hzy-header-btn hzy-headerhover" onclick="hzy.menu.toggle(this)"><a href="javascript:void(0)" class="pl-15 pr-15"><i class="fa fa-bars"></i></a></li>
+                <li class="hzy-header-btn hzy-headerhover hzy-logo"><a href="javascript:void(0)" class="pl-15 pr-15">@ViewBag.Title</a></li>
+                <li class="hzy-header-btn hzy-headerhover pull-right"><a href="/Admin/Login/Out" class="pl-15 pr-15"><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <nav class="hzy-navMenu hzy-navMenu-width220">
+            <div class="hzy-navMenu-sidebar sidebar-nav">
+                <ul class="metismenu" id="menu">
+                    <li>
+                        <a href="javascript:void(0)" hzy-router-href="*" hzy-router-text="首页" class="has-first-menu active">
+                            <i class="fa fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;<span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>系统管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li><a href="javascript:void(0);var url='/System/User/Index';" hzy-router-href="/System/User/Index" hzy-router-text="用户管理" class="active"><i class=""></i>&nbsp;&nbsp;<span>用户管理</span></a></li>
+                            <li><a href="javascript:void(0);var url='/System/Role/Index';" hzy-router-href="/System/Role/Index" hzy-router-text="角色管理" class=""><i class=""></i>&nbsp;&nbsp;<span>角色管理</span></a></li>
+                            <li><a href="javascript:void(0);var url='/Admin/Function/Index';" hzy-router-href="/Admin/Function/Index" hzy-router-text="功能管理" class=""><i class=""></i>&nbsp;&nbsp;<span>功能管理</span></a></li>
+                            <li><a href="javascript:void(0);var url='/System/Menu/Index';" hzy-router-href="/System/Menu/Index" hzy-router-text="菜单功能" class=""><i class=""></i>&nbsp;&nbsp;<span>菜单功能</span></a></li>
+                            <li><a href="javascript:void(0);var url='/Admin/RoleFunction/Index';" hzy-router-href="/Admin/RoleFunction/Index" hzy-router-text="角色功能" class=""><i class=""></i>&nbsp;&nbsp;<span>角色功能</span></a></li>
+                            <li><a href="javascript:void(0);var url='/System/Button/Index';" hzy-router-href="/System/Button/Index" hzy-router-text="按钮管理" class=""><i class=""></i>&nbsp;&nbsp;<span>按钮管理</span></a></li>
+                            <li><a href="javascript:void(0);var url='/Home/BootStrapTable';" hzy-router-href="/Home/BootStrapTable" hzy-router-text="修改密码" class=""><i class=""></i>&nbsp;&nbsp;<span>修改密码</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>商品管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li>
+                                <a href="javascript:void(0);var url='/Product/Product/Index';" hzy-router-href="/Product/Product/Index" hzy-router-text="商品列表">
+                                    <i class=""></i>&nbsp;&nbsp;<span>商品列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>订单管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li>
+                                <a href="javascript:void(0);var url='/Order/Order/Index';" hzy-router-href="/Order/Order/Index" hzy-router-text="订单列表">
+                                    <i class=""></i>&nbsp;&nbsp;<span>订单列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>设备管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li>
+                                <a href="javascript:void(0);var url='/Machine/Machine/Index';" hzy-router-href="/Machine/Machine/Index" hzy-router-text="设备列表">
+                                    <i class=""></i>&nbsp;&nbsp;<span>设备列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>库存管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li>
+                                <a href="javascript:void(0);var url='/Stock/Stock/Index';" hzy-router-href="/Stock/Stock/Index" hzy-router-text="库存列表">
+                                    <i class=""></i>&nbsp;&nbsp;<span>库存列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>广告管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li>
+                                <a href="javascript:void(0);var url='/AdvertiseMent/AdvertiseMent/Index';" hzy-router-href="/AdvertiseMent/AdvertiseMent/Index" hzy-router-text="广告列表">
+                                    <i class=""></i>&nbsp;&nbsp;<span>广告列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="fa fa-desktop fa-lg"></i>&nbsp;&nbsp;<span>日志管理</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li><a href="javascript:void(0);var url='/System/User/Index';" hzy-router-href="/System/User/Index" hzy-router-text="日志" class="active"><i class=""></i>&nbsp;&nbsp;<span>用户管理</span></a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <content class="hzy-left220">
+            <nav class="hzy-navTab">
+                <div class="hzy-navTab-left" onclick="hzy.tabs.leftMove()"><i class="fa fa-chevron-left"></i></div>
+                <div class="hzy-navTab-center">
+                    <ul class="list-unstyled list-inline">
+                        <li class="hzy-navTab-li active" title="首页"><a href="javascript:void(0)" hzy-router-href="*" hzy-router-text="首页"><span>首页</span></a></li>
+                        <!--<li class="hzy-navTab-li"><a><span>会员列表</span></a><i class="fa fa-close" onclick="hzy.tabs.close(event,$(this).parent().parent())"></i></li>-->
+                    </ul>
+                </div>
+                <div class="hzy-navTab-right" onclick="hzy.tabs.rightMove()"><i class="fa fa-chevron-right"></i></div>
+                <div class="btn-group dropdown pull-left" style="height:100%;" id="hzy-tools">
+                    <button type="button" class="btn btn-outline btn-default dropdown-toggle height-full hzy-navTab-more"
+                            id="exampleBulletDropdown2" data-toggle="dropdown" aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-bullet dropdown-menu-right" aria-labelledby="exampleBulletDropdown2"
+                         role="menu" x-placement="bottom-end">
+                        <a class="dropdown-item" href="javascript:;" role="menuitem" onclick="hzy.tabs.removeOtherTab()">
+                            <i class="fa fa-close"></i> 关闭其他
+                        </a>
+                        <a class="dropdown-item" href="javascript:;" role="menuitem" onclick="hzy.tabs.removeAllTab()">
+                            <i class="fa fa-power-off"></i>
+                            关闭所有
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript:;" role="menuitem" onclick="hzy.tabs.refreshThisTab()">
+                            <i class="fa fa-repeat"></i> 刷新当前
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <section class="hzy-main">
+                <div id="pageContent">
+                    <iframe class="hzy-iframe hzy-iframe-active" frameborder="0" src="@MainPage" name="@("adminIframe-"+MainPage)"></iframe>
+                </div>
+            </section>
+        </content>
+    </main>
+</div>
+
+<!--皮肤模态框-->
+<div class="modal fade" id="examplePositionSidebar" aria-hidden="true" aria-labelledby="examplePositionSidebar" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-sidebar modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">皮肤设置</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">导航条颜色：</label>
+                        <ul class="list-unstyled list-inline" style="text-align: center;">
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-primary" onclick="hzy.setTheme(null,0);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-cyan" onclick="hzy.setTheme(null,1);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-green" onclick="hzy.setTheme(null,2);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-indigo" onclick="hzy.setTheme(null,3);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-grey" onclick="hzy.setTheme(null,4);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-pink" onclick="hzy.setTheme(null,5);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-purple" onclick="hzy.setTheme(null,6);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-red" onclick="hzy.setTheme(null,7);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-teal" onclick="hzy.setTheme(null,8);"></div>
+                            </li>
+                            <li class="pr-5 pl-5 inline-block">
+                                <div class="index-skin index-skin-orange" onclick="hzy.setTheme(null,9);"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <label>菜单皮肤：</label>
+                        <select class="form-control" onchange="hzy.setTheme($(this).val(),null)">
+                            <option value="0">==菜单皮肤==</option>
+                            <option value="0">深色</option>
+                            <option value="1">浅色</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>菜单默认状态：</label>
+                        <select class="form-control" onchange="hzy.menu.toggle(null, $(this).val())">
+                            <option value="">==菜单默认状态==</option>
+                            <option value="2">收起</option>
+                            <option value="1">展开</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">  关闭 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section css{
+    <link href="~/Content/metisMenu.css" rel="stylesheet" />
+    <style type="text/css">
+
+        body {
+            overflow: hidden;
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+        }
+
+        #hzy-container {
+            height: 100%;
+        }
+    </style>
+}
+@section js{
+    <script src="~/Scripts/Router.js"></script>
+    <script src="~/Scripts/metisMenu.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            hzyRouter.init();
+            hzy.init();
+            $('#hzy-tools > .dropdown-toggle').dropdown();
+            $('#hzy-container').on('click', function () {
+                $('#hzy-tools > .dropdown-toggle').dropdown('toggle');
+            });
+
+            setTimeout(function () {
+                $("#menu li .has-arrow.has-first-menu").eq(0).click();
+            }, 200);
+        });
+    </script>
+}
+

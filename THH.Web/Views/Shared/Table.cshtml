@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link href="~/Content/core.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-table.min.css" rel="stylesheet" />
+    <!--基础js-->
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-table/bootstrap-table.js"></script>
+    <script src="~/Scripts/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <link href="~/Content/validation.css" rel="stylesheet" />
+    <!--my css-->
+    <link href="~/Content/main.css" rel="stylesheet" />
+    @RenderSection("css", required: false)
+</head>
+<body class="@ViewBag.BodyClass">
+    @RenderBody()
+    @RenderSection("js", required: false)
+    @StackExchange.Profiling.MiniProfiler.RenderIncludes()
+</body>
+</html>
