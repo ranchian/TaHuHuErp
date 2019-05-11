@@ -1,0 +1,7 @@
+记录时间：2019-05-11 19:37:12,276 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 C:\Users\L_J_Y\Source\Repos\TaHuHuErp\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
