@@ -57,13 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
-    <Compile Include="BasicsService\MerchantService.cs" />
-    <Compile Include="ReportService\MachineService.cs" />
     <Compile Include="FtpService.cs" />
     <Compile Include="BasicsService\StoreService.cs" />
     <Compile Include="BasicsService\CompanyService.cs" />
     <Compile Include="GoodsService.cs" />
     <Compile Include="ImportService.cs" />
+    <Compile Include="ReportService\PointTxnDetailService.cs" />
     <Compile Include="ReportService\ReportBaseService.cs" />
     <Compile Include="ReportService\StoreReportService.cs" />
     <Compile Include="SysButtonService.cs" />

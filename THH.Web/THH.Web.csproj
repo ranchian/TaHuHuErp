@@ -151,9 +151,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Basics\BasicsAreaRegistration.cs" />
     <Compile Include="Areas\Basics\Controllers\CompanyController.cs" />
-    <Compile Include="Areas\Basics\Controllers\MachineController.cs" />
-    <Compile Include="Areas\Basics\Controllers\MerchantController.cs" />
     <Compile Include="Areas\Basics\Controllers\StoreController.cs" />
+    <Compile Include="Areas\Report\Controllers\PointTxnDetailController.cs" />
     <Compile Include="Areas\Report\Controllers\StoreReportController.cs" />
     <Compile Include="Areas\Report\ReportAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\ButtonController.cs" />
@@ -504,6 +503,7 @@
     <Content Include="Areas\Basics\Views\Machine\Edit.cshtml" />
     <Content Include="Areas\Basics\Views\Merchant\Add.cshtml" />
     <Content Include="Areas\Basics\Views\Merchant\Edit.cshtml" />
+    <Content Include="Areas\Report\Views\PointTxnDetail\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\i18n\en\common.properties" />
     <Content Include="Scripts\i18n\zh-CN\common_zh_CN.properties" />

@@ -60,8 +60,6 @@
   <ItemGroup>
     <Compile Include="ImportModel\StoreReportImport.cs" />
     <Compile Include="BaseModel\FtpModel.cs" />
-    <Compile Include="ReportModel\Dto\MachineDto.cs" />
-    <Compile Include="ReportModel\Dto\MerchantDto.cs" />
     <Compile Include="ReportModel\Dto\StoreDto.cs" />
     <Compile Include="ReportModel\Dto\CompanyDto.cs" />
     <Compile Include="ReportModel\DBModel\PointTxnDetail.cs" />

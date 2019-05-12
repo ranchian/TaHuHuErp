@@ -1,30 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using THH.Service.CompanyService;
 using THH.Core.TablePage;
 using THH.Model.ReportModel.Dto;
+using THH.Service.CompanyService;
 using THH.Web.Authorization;
 using THH.Web.BaseApplication;
 using THH.Web.Models;
 
 namespace THH.Web.Areas.Basics.Controllers
 {
-    public class CompanyController : ServicedController<CompanyService>
+    public class CompanyController :ServicedController<CompanyService>
     {
         // GET: Basics/Company
         public ActionResult Index()
         {
+            ViewBag.DepartmentSelectList = GetSelectList().ToSelectList();
             return View();
         }
-
+        public List<KeyValuePair<string, string>> GetSelectList(string emptyKey = null, string emptyValue = null)
+        {
+            List<KeyValuePair<string, string>> result = new List<KeyValuePair<string, string>>();
+            if (emptyKey != null) result.Add(new KeyValuePair<string, string>(emptyKey, emptyValue));
+            result.Add(new KeyValuePair<string, string>("1", "阿里巴巴"));
+            result.Add(new KeyValuePair<string, string>("2", "京东"));
+            return result;
+        }
         public JsonResult GetCompanyGrid(int limit, int offset, string sort, string sortOrder)
         {
             TablePageParameter gp = new TablePageParameter() { Limit = limit, Offset = offset, SortName = sort, SortOrder = sortOrder };
             List<CompanyDto> companyDtos = Service.GetCompanyGrid(gp);
-            return Json(new { total = gp.TotalCount, rows = companyDtos }, JsonRequestBehavior.AllowGet);
+            return Json(new { total = gp.TotalCount }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

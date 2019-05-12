@@ -1,4 +1,6 @@
-﻿namespace THH.Model.ImportModel
+﻿using System;
+
+namespace THH.Model.ImportModel
 {
     /// <summary>
     /// 导入模板
@@ -12,8 +14,8 @@
         public string HOST_REF { get; set; }
         public string TXN_TYPE { get; set; }
         public string TXN_AMT { get; set; }
-        public string TXN_DATE { get; set; }
-        public string SETTLE_DATE { get; set; }
+        public DateTime TXN_DATE { get; set; }
+        public DateTime SETTLE_DATE { get; set; }
         public string CURRENCY { get; set; }
         public string PAYMENT_TYPE { get; set; }
         public string MID { get; set; }

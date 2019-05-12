@@ -1,9 +1,13 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using THH.Core;
+using THH.Core.Excel.Npoi;
 using THH.Core.Json;
 using THH.DAL;
 using THH.Model;
+using THH.Model.ImportModel;
+using THH.Model.ReportModel.DBModel;
 using THH.Service;
 using THH.Service.ReportService;
 
@@ -13,8 +17,20 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Initializer initializer = new Initializer();
-           initializer.Seed();
+           // Initializer initializer = new Initializer();
+           //initializer.Seed();
+            AutoMapperConfig.Config();
+            string filePath = System.AppDomain.CurrentDomain.BaseDirectory + "Excle\\新建工作表.xlsx";
+            List<PointTxnDetailImport> excelList = ImportExcelHelper.GetListFromExcel<PointTxnDetailImport>(filePath);
+            PointTxnDetailService pointTxnDetailService = new PointTxnDetailService();
+            var list1=  Mapper.Map<List<PointTxnDetailImport>, List<PointTxnDetail>>(excelList);
+            list1.ForEach(p =>
+            {
+                p.CreateUser = "ljy";
+                p.CredateTime = DateTime.Now;
+            });
+            pointTxnDetailService.Add(list1);
+
 
             UserService userService = new UserService();
             SysFunctionService sysFunctionService = new SysFunctionService();
@@ -25,6 +41,9 @@ namespace ConsoleApp
             UserRoleService userRoleService = new UserRoleService();
             SystemService systemService = new SystemService();
             StoreReportService storeReportService = new StoreReportService();
+
+
+
             storeReportService.test();
             var user = userService.Find(1);
             List<UserRole> list = userRoleService.GetUserRoles();

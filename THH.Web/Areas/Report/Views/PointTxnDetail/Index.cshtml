@@ -2,103 +2,69 @@
 @{
     ViewBag.Title = "Index";
 }
-@*<script src="~/Scripts/bootstrap-datetimepicker-4.17.47.min.js"></script>
-<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">*@
+
+<script src="~/Scripts/common.js"></script>
 
 <div class="page animation-fade">
     <div class="page-content">
         <!--高级检索部分-->
-        <div class="panel" id="panelSearch">
-            @*<div class="panel-heading">
+        @* <div class="panel" id="panelSearch">
+                <div class="panel-heading">
                     <h3 class="panel-title">高级检索</h3>
-                </div>*@
-            <div class="panel-body">
-                <form action="javascript:void(0)" class="form-row">
-                    <div class="col-sm-3">
-                        <h4 class="example-title">公司</h4>
-                        <input type="text" class="form-control" name="User_Name" placeholder="请输入用户名">
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="example-title">编码</h4>
-                        <input type="text" class="form-control" name="User_LoginName" placeholder="请输入登录名">
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="example-title">开始时间</h4>
-                        <input type="text" value="2019-05-12 13:05" id="dateFrom">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        @*<input type="text" class="form-control" name="User_Name" placeholder="请输入用户名">*@
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="example-title">结束时间</h4>
-                        <input type="text" value="2019-05-12 13:05" id="datetTo">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        @*<input type="text" class="form-control" name="User_LoginName" placeholder="请输入登录名">*@
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="example-title">公司</h4>
-                        @Html.DropDownList("DepartmentID", (IEnumerable<SelectListItem>)ViewBag.DepartmentSelectList, new { @class = "form-control" })
-                    </div>
-                </form>
-            </div>
-            @*<div class="panel-footer text-right">
-                    <button class="btn btn-primary" onclick="adminList.search()">检索</button>&nbsp;&nbsp;
-                    <button class="btn btn-success" onclick="adminList.resetSearch()">重置</button>&nbsp;&nbsp;
-                    <button class="btn btn-danger" onclick="adminList.panelSearch()">关闭</button>
-                </div>*@
-        </div>
-        <!--列表-->
-        <div class="panel">
-            <div class="panel-heading">
-                <div class="col-sm-12 pl-25 pr-25 pt-15 pb-10">
-                    <button type="button" class="btn btn-primary" onclick="window.location=window.location">
-                        <i class="fa fa-rotate-right"></i>&nbsp;刷新
-                    </button>
-                    <button type="button" class="btn btn-primary" data-power="Search" name="search">
-                        <i class="fa fa-search"></i>&nbsp;查询
-                    </button>
-                    <button type="button" class="btn btn-primary" data-power="Add" name="add" id="add">
-                        <i class="fa fa-plus"></i>&nbsp;添加
-                    </button>
-                    <button type="button" class="btn btn-primary" data-power="Edit" name="edit" id="edit">
-                        <i class="fa fa-pencil"></i>&nbsp;修改
-                    </button>
-                    <button type="button" class="btn btn-primary" data-power="Delete" name="delete" id="delete">
-                        <i class="fa fa-trash"></i>&nbsp;删除
-                    </button>
-                    <a class="btn btn-primary" target="_blank" href="" data-power="GetExcel" name="getExcel" id="exportExcel">
-                        <i class="fa fa-file-excel-o"></i>&nbsp;导出 Excel
-                    </a>
                 </div>
+                <div class="panel-body">
+                    <form action="javascript:void(0)" class="form-row">
+                            <div class="col-sm-3">
+                                <h4 class="example-title">用户名</h4>
+                                <input type="text" class="form-control" name="User_Name" placeholder="请输入用户名">
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 class="example-title">登录名</h4>
+                                <input type="text" class="form-control" name="User_LoginName" placeholder="请输入登录名">
+                            </div>
+                        </form>
+            </div>*@
+    </div>
+    <!--列表-->
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="col-sm-12 pl-25 pr-25 pt-15 pb-10">
+                <button type="button" class="btn btn-primary" onclick="window.location=window.location">
+                    <i class="fa fa-rotate-right"></i>&nbsp;刷新
+                </button>
+                <button type="button" class="btn btn-primary" data-power="Search" name="search">
+                    <i class="fa fa-search"></i>&nbsp;检索
+                </button>
+                <button type="button" class="btn btn-primary" data-power="Add" name="add" id="add">
+                    <i class="fa fa-plus"></i>&nbsp;添加
+                </button>
+                <button type="button" class="btn btn-primary" data-power="Edit" name="edit" id="edit">
+                    <i class="fa fa-pencil"></i>&nbsp;修改
+                </button>
+                <button type="button" class="btn btn-primary" data-power="Delete" name="delete" id="delete">
+                    <i class="fa fa-trash"></i>&nbsp;删除
+                </button>
+                <a class="btn btn-primary" target="_blank" href="" data-power="GetExcel" name="getExcel" id="exportExcel">
+                    <i class="fa fa-file-excel-o"></i>&nbsp;导出 Excel
+                </a>
             </div>
-            <div class="panel-body container-fluid pb-0">
-                <!--表格-->
-                <table class="bootstrap-table" data-show-columns="false" id="CompanyTable"></table>
-            </div>
+        </div>
+        <div class="panel-body container-fluid pb-0">
+            <!--表格-->
+            <table class="bootstrap-table" data-show-columns="false" id="PointTxnDetailTable"></table>
         </div>
     </div>
 </div>
 
 <script>
     $(function () {
-        //$('#dateFrom').datetimepicker({
-        //    format: 'YYYY-MM-DD',
-        //  //  locale: moment.locale('zh-cn')
-        //});
-        //$('#datetTo').datetimepicker({
-        //    format: 'YYYY-MM-DD hh:mm',
-        //   // locale: moment.locale('zh-cn')
-        //});
         //添加
         $("#add").on('click', function () {
-            CreateCompany();
+            CreatePointTxnDetail();
         });
         //修改
         $("#edit").on('click', function () {
-            var id = $.map($('#CompanyTable').bootstrapTable('getSelections'), function (row) {
+            var id = $.map($('#PointTxnDetailTable').bootstrapTable('getSelections'), function (row) {
                 return row.Id;
             });
             if (id.length != 1) {
@@ -106,12 +72,12 @@
                     time: 4000,
                 });
             } else {
-                EditCompany(id);
+                EditPointTxnDetail(id);
             }
         });
         //删除
         $("#delete").on('click', function () {
-            var ids = $.map($('#CompanyTable').bootstrapTable('getSelections'), function (row) {
+            var ids = $.map($('#PointTxnDetailTable').bootstrapTable('getSelections'), function (row) {
                 return row.Id;
             });
             if (ids.length < 1) {
@@ -124,7 +90,7 @@
         });
         //导出
         $("#exportExcel").on('click', function () {
-            var ids = $.map($('#CompanyTable').bootstrapTable('getSelections'), function (row) {
+            var ids = $.map($('#PointTxnDetailTable').bootstrapTable('getSelections'), function (row) {
                 return row.Id;
             });
             Export(ids)
@@ -134,8 +100,8 @@
         oButtonInit.Init();
         //用户
         //1.初始化商户Table
-        var CompanyTablets = new CompanyTableInit();
-        CompanyTablets.Init();
+        var PointTxnDetailTablets = new PointTxnDetailTableInit();
+        PointTxnDetailTablets.Init();
     });
     var ButtonInit = function () {
         var oInit = new Object();
@@ -145,12 +111,12 @@
         };
         return oInit;
     };
-    var CompanyTableInit = function () {
+    var PointTxnDetailTableInit = function () {
         var oTableInit = new Object();
         //初始化Table
         oTableInit.Init = function () {
-            $('#CompanyTable').bootstrapTable({
-                url: '/Company/GetCompanyGrid',
+            $('#PointTxnDetailTable').bootstrapTable({
+                url: '/PointTxnDetail/GetPointTxnDetailGrid',
                 ajaxOptions: { async: true, timeout: 10000 },
                 method: 'get',
                 //toolbar: '#toolbar',              //工具按钮用哪个容器
@@ -189,16 +155,67 @@
                         sortable: true
                     },
                     {
-                        field: 'Name',
-                        title: '公司名称'
+                        field: 'ProfileId',
+                        title: 'PROFILE_ID'
                     },
                     {
-                        field: 'Code',
-                        title: '公司编号'
+                        field: 'MerchantName',
+                        title: 'MERCHANT_NAME',
+                        sortable: true
                     },
                     {
-                        field: 'Address',
-                        title: '地址'
+                        field: 'TxnId',
+                        title: 'TXN_ID'
+                    },
+                    {
+                        field: 'HostRef',
+                        title: 'HOST_REF'
+                    },
+                    {
+                        field: 'TxnType',
+                        title: 'TXN_TYPE'
+                    },
+                    {
+                        field: 'TxnAmt',
+                        title: 'TXN_AMT'
+                    },
+                    {
+                        field: 'TxnDate',
+                        title: 'TXN_DATE',
+                        formatter: function (value, row, index) {
+                            return Common.DateFormat(value)
+                        }
+                    },
+                    {
+                        field: 'SettleDate',
+                        title: 'SETTLE_DATE',
+                        formatter: function (value, row, index) {
+                            return Common.DateFormat(value)
+                        }
+                    },
+                    {
+                        field: 'Currency',
+                        title: 'CURRENCY'
+                    },
+                    {
+                        field: 'PaymentType',
+                        title: 'PAYMENT_TYPE'
+                    },
+                    {
+                        field: 'Mid',
+                        title: 'MID'
+                    },
+                    {
+                        field: 'Tid',
+                        title: 'TID'
+                    },
+                    {
+                        field: 'Discount',
+                        title: 'DISCOUNT',
+                    },
+                    {
+                        field: 'CouponName',
+                        title: 'COUPON_NAME',
                     }
                 ]
             });
@@ -218,20 +235,20 @@
 </script>
 
 <script>
-    var CreateCompany = function () {
+    var CreatePointTxnDetail = function () {
         layer.open({
             type: 2,
-            title: '添加公司',
+            title: '添加商户',
             shadeClose: true,
             shade: 0.8,
             area: ['50%', '60%'],
             content: 'Add'
         })
     }
-    var EditCompany = function (id) {
+    var EditPointTxnDetail = function (id) {
         layer.open({
             type: 2,
-            title: '编辑公司',
+            title: '编辑商户',
             shadeClose: true,
             shade: 0.8,
             area: ['50%', '60%'],
@@ -260,7 +277,7 @@
                         layer.msg('删除成功！', {
                             time: 2000,
                         });
-                        $("#CompanyTable").bootstrapTable('refresh', { url: '/CompanyReport/GetCompanyGrid' });
+                        $("#PointTxnDetailTable").bootstrapTable('refresh', { url: '/PointTxnDetailReport/GetPointTxnDetailGrid' });
                     } else {
                         layer.open({
                             title: '提示',
@@ -281,7 +298,7 @@
     var Export = function (ids) {
         $.ajax({
             type: "Post",
-            url: '@Url.Action("ExportExcel", "Store", new { area = "" })',
+            url: '@Url.Action("ExportExcel", "PointTxnDetail", new { area = "" })',
             dataType: "json",
             data: {
                 ids: ids
@@ -302,4 +319,3 @@
         })
     }
 </script>
-
