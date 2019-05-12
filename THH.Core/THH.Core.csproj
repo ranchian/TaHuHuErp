@@ -46,6 +46,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="LumenWorks.Framework.IO, Version=3.8.0.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
+      <HintPath>..\packages\LumenWorks.Framework.IO.3.8.0\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -89,6 +92,7 @@
     <Compile Include="EncryptHelper.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="Enum\DataBaseType.cs" />
+    <Compile Include="Excel\CVS\ImportCvsHelper.cs" />
     <Compile Include="Excel\Npoi\ImportExcelHelper.cs" />
     <Compile Include="Ftp\FtpHelper.cs" />
     <Compile Include="Ftp\PathHelper.cs" />

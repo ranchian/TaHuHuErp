@@ -2273,3 +2273,143 @@
    在 System.Net.WebClient.GetUri(String path)
    在 System.Net.WebClient.DownloadString(String address)
    在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:02:25,675 线程ID:[12] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:04:05,675 线程ID:[10] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:05:45,677 线程ID:[24] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:07:25,675 线程ID:[23] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:09:05,676 线程ID:[22] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:10:45,676 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:12:25,676 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:14:05,676 线程ID:[8] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:15:45,675 线程ID:[8] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:17:25,675 线程ID:[33] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:19:05,675 线程ID:[44] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:20:45,676 线程ID:[36] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:22:25,675 线程ID:[9] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:24:05,675 线程ID:[9] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:25:45,676 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:27:25,676 线程ID:[52] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:29:05,675 线程ID:[48] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:30:45,675 线程ID:[46] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:32:25,675 线程ID:[41] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
+记录时间：2019-05-12 23:34:05,676 线程ID:[44] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：KeepliveJob:System.ArgumentException: 路径的形式不合法。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.Net.WebClient.GetUri(String path)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 THH.Web.TaskJobs.KeepliveJob.<Execute>d__0.MoveNext() 位置 E:\THHERP\THH.Web\TaskJobs\KeepliveJob.cs:行号 22
